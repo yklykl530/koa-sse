@@ -1,0 +1,4 @@
+v0.1.1
+In the bubble phase, add safety inspection logic.
+If the ctx.body is a stream, the test can be written, and if it can be written, it is written to the stream.
+If the ctx.body is another type, determine whether the sse flow is over. If it is not finished, the ctx.sse.send(ctx.body) is called, and then ctx.body=ctx.sse.
