@@ -1,4 +1,4 @@
-koa-sse
+koa-sse-stream
 ===
 > koa sse（server side event） middleware , use stream programming model
 
@@ -6,14 +6,14 @@ koa-sse
 
 Install
 ---
-> npm install --save koa-sse
+> npm install --save koa-sse-stream
 
 Usage
 ---
 ```js
 const Koa = require('koa');
 const compress = require('koa-compress');
-const sse = require('koa-sse');
+const sse = require('koa-sse-stream');
 
 
 const app = new Koa();
