@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SSE Test</title>
+</head>
+<body>
+        Please open the console
+    <script>
+        var evtSource = new EventSource("http://localhost:9099/");
+        evtSource.onmessage = function(e) {
+            console.log('onmsg: ' + e.data);
+        }
+        evtSource.onerror = function(e) {
+            console.log('error', e);
+            evtSource.close();
+        }
+    </script>
+</body>
+</html>

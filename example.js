@@ -11,14 +11,17 @@ app.use(koaSse());
 app.use(async (ctx) => {
     let n = 0;
     let interval = setInterval(() => {
-        ctx.sse.send((new Date()).toString());
+        let date = (new Date()).toString();
+        ctx.sse.send(date);
+        console.log('send Date : ' + date);
         n++;
-        if (n >= 5) {
-            ctx.sse.end();
-            clearInterval(interval)
+        if (n >= 10) {
+            console.log('send manual close');
+            ctx.sse.sendEnd();
         }
     }, 1000);
     ctx.sse.on('close', (...args) => {
+        console.log('clear interval')
         clearInterval(interval)
     });
 })

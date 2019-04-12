@@ -36,7 +36,7 @@ app.use(sse({
 app.use(async (ctx) => {
     // ctx.sse is a writable stream and has extra method 'send'
     ctx.sse.send('a notice');
-    ctx.sse.end();
+    ctx.sse.sendEnd();
 });
 ```
 
@@ -45,6 +45,9 @@ ctx.sse
 a writable stream 
 > ctx.sse.send(data)
 ```js
+/**
+ * Event `close`  Triggered when an SSE connection is closed, whether the server is actively closed or the client is closed
+ */
 /**
  * 
  * @param {String} data sse data to send, if it's a string, an anonymous event will be sent.
@@ -58,7 +61,7 @@ a writable stream
  */
 send(data, encoding, callback)
 ```
->ctx.sse.end(data)
+>ctx.sse.sendEnd(data)
 ```js
 /**
  * 
@@ -71,7 +74,7 @@ send(data, encoding, callback)
  * @param {*} encoding not use
  * @param {function} callback same as the write method callback
  */
-end(data, encoding, callback)
+sendEnd(data, encoding, callback)
 ```
 
 Attention !!!
